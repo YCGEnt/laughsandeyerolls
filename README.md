@@ -1,5 +1,3 @@
-# laughsandeyerolls
-
 # Laughs & Eye Rolls
 
 ### Adventures with Ms. Murphy
