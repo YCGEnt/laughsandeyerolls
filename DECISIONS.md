@@ -119,3 +119,57 @@ Describe how this decision affects future work.
 **Status**
 
 Active | Superseded | Deprecated
+
+---
+
+## 2026-06-15
+
+### Phase 1 Application Scaffold
+
+**Decision**
+
+Initialize the application with the Next.js App Router, TypeScript, Tailwind CSS, and the repository structure documented in `README.md`.
+
+**Reasoning**
+
+The App Router aligns with the preferred Next.js stack, supports modern layouts and metadata, and gives the archive a maintainable foundation for future storytelling sections.
+
+**Alternatives Considered**
+
+- A static HTML/CSS prototype, which would be faster initially but less aligned with the chosen long-term stack.
+- The legacy Next.js Pages Router, which is mature but not the modern default for new Next.js applications.
+
+**Impact**
+
+Future features should use the `app` directory for routes and layouts, with reusable UI moving into `components`, domain-specific work into `features`, shared utilities into `lib`, global styling in `styles`, and project documentation in `docs`.
+
+**Status**
+
+Active
+
+---
+
+## 2026-06-15
+
+### CSS-Only Phase 1 Visual Placeholders
+
+**Decision**
+
+Use branded CSS gradients, borders, and editorial framing for Phase 1 image and travel placeholders instead of stock imagery or generated placeholder photos.
+
+**Reasoning**
+
+The homepage should avoid borrowing generic imagery for a personal family archive. CSS-only placeholders preserve the premium tone while leaving space for family-approved photos and memories.
+
+**Alternatives Considered**
+
+- Stock photography, rejected because it would feel generic and conflict with the archive’s personal mission.
+- AI-generated imagery, rejected for Phase 1 because authentic family-selected materials should define the visual memory system.
+
+**Impact**
+
+Placeholders remain lightweight, brand-aligned, and easy to replace with real archival assets later without changing page structure.
+
+**Status**
+
+Active

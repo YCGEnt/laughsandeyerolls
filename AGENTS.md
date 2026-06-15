@@ -287,3 +287,39 @@ Before introducing a new library, framework, dependency, design pattern, or arch
 2. Verify the decision does not already exist.
 3. If replacing an existing decision, document the reason.
 4. Record the new decision before completing the task.
+
+---
+
+## Change Log
+
+### 2026-06-15
+
+Completed:
+- Initialized Phase 1 Next.js App Router project configuration.
+- Configured Tailwind CSS with the approved Laughs & Eye Rolls color palette and typography tokens.
+- Created the documented project structure: `app`, `components`, `features`, `lib`, `public`, `styles`, and `docs`.
+- Created a mobile-first homepage MVP with a hero section, project title, subtitle, mission copy, tasteful featured image placeholder, featured story card, timeline preview, travel memories preview, and elegant footer.
+- Added a brand background concepts note for current CSS-only texture treatments.
+
+Files Created:
+- `app/layout.tsx`
+- `app/page.tsx`
+- `styles/globals.css`
+- `docs/brand/background-concepts.md`
+- Project configuration files for Next.js, TypeScript, PostCSS, ESLint, and package scripts.
+- `.gitkeep` files for scaffolded empty project directories.
+
+Files Modified:
+- `AGENTS.md`
+- `DECISIONS.md`
+
+Refactors Performed:
+- None; this was the initial application scaffold.
+
+Known Issues:
+- Dependency installation and runtime verification could not be completed because npm registry requests returned `403 Forbidden` in the environment.
+
+Outstanding Work:
+- Install dependencies once registry access is available.
+- Run the Next.js development server and capture visual QA screenshots.
+- Replace tasteful placeholders with family-approved imagery and archival content.

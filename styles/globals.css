@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Lato:wght@300;400;700;900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-espresso: #2f211d;
+  --color-cocoa-brown: #4b362f;
+  --color-vintage-crimson: #9f2d2d;
+  --color-warm-smoke: #b8b4ae;
+  --color-fog-gray: #d8d6d2;
+  --color-ivory-linen: #f6f1ea;
+  --font-sans: "Lato", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Cinzel Decorative", Georgia, serif;
+}
+
+:root {
+  background: #f6f1ea;
+  color: #2f211d;
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: rgba(159, 45, 45, 0.2);
+}
+
+@keyframes soft-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-soft-reveal {
+  animation: soft-reveal 720ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
