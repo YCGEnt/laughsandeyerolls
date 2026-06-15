@@ -225,3 +225,65 @@ Every feature should answer:
 "Does this help preserve memories, personality, connection, or storytelling?"
 
 If not, reconsider whether it belongs in the project.
+
+## Documentation Requirements
+
+At the conclusion of every work session:
+
+### AGENTS.md
+
+Append a dated entry to the Change Log containing:
+
+- Features added
+- Files created
+- Files modified
+- Refactors performed
+- Known issues
+- Outstanding work
+
+Example:
+
+### 2026-06-15
+
+Completed:
+- Created homepage hero section
+- Added timeline component
+- Added Supabase client configuration
+
+Outstanding:
+- Photo gallery not yet implemented
+- Search functionality pending
+
+Known Issues:
+- Mobile menu animation needs refinement
+
+---
+
+### DECISIONS.md
+
+Create a new decision entry whenever any of the following occur:
+
+- New dependency added
+- New architecture pattern adopted
+- Database schema changed
+- Design system changed
+- UX flow changed
+- Naming convention changed
+- Folder structure changed
+
+Each decision must include:
+
+- Decision
+- Reasoning
+- Alternatives Considered
+- Impact
+- Status
+
+## Architectural Guardrail
+
+Before introducing a new library, framework, dependency, design pattern, or architectural approach:
+
+1. Search DECISIONS.md.
+2. Verify the decision does not already exist.
+3. If replacing an existing decision, document the reason.
+4. Record the new decision before completing the task.
