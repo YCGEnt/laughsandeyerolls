@@ -1,0 +1,28 @@
+{
+  "name": "laughsandeyerolls",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A cinematic digital family archive dedicated to preserving memories, humor, travel adventures, stories, and legacy with personality intact.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "tailwindcss": "latest",
+    "typescript": "latest",
+    "@eslint/eslintrc": "latest"
+  }
+}
