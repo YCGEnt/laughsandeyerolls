@@ -173,3 +173,31 @@ Placeholders remain lightweight, brand-aligned, and easy to replace with real ar
 **Status**
 
 Active
+
+---
+
+## 2026-06-16
+
+### Source-Controlled Vercel Framework Configuration
+
+**Decision**
+
+Add a minimal `vercel.json` that pins the project framework to Next.js and records the expected install, build, and development commands.
+
+**Reasoning**
+
+The application generates the `/` route during the Vercel build, so a Vercel-level `404_NOT_FOUND` points to deployment routing, alias, root directory, or project setting mismatch rather than a missing App Router page. Keeping the framework and command configuration in source control reduces the chance that dashboard settings drift away from the repository’s intended Next.js setup.
+
+**Alternatives Considered**
+
+- Add an application rewrite for `/`, rejected because the generated route already exists and a Vercel-level 404 happens before the Next.js route handles the request.
+- Set a custom output directory, rejected because Vercel should use the Next.js framework default output handling for this project.
+- Add another route or fallback page, rejected because the issue is deployment-level URL resolution rather than missing app content.
+
+**Impact**
+
+Future deployments should use the Next.js framework preset and the repository package scripts. Vercel dashboard checks are still required for Root Directory, Output Directory, production branch, custom domain, and deployment URL alias configuration.
+
+**Status**
+
+Active

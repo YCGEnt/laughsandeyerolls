@@ -323,3 +323,29 @@ Outstanding Work:
 - Install dependencies once registry access is available.
 - Run the Next.js development server and capture visual QA screenshots.
 - Replace tasteful placeholders with family-approved imagery and archival content.
+
+### 2026-06-16
+
+Completed:
+- Investigated the Ready Vercel deployment behavior where build logs generated `/` but the visited URL returned Vercel `404_NOT_FOUND`.
+- Added a repository-level `vercel.json` to pin the Vercel framework preset and core commands to Next.js expectations.
+- Added Vercel deployment notes documenting root directory, branch alias, deployment URL, and output directory checks.
+
+Files Created:
+- `vercel.json`
+- `docs/architecture/vercel-deployment.md`
+
+Files Modified:
+- `AGENTS.md`
+- `DECISIONS.md`
+
+Refactors Performed:
+- None.
+
+Known Issues:
+- Vercel dashboard/project settings and deployment URLs cannot be inspected from this local repository because no Vercel project metadata or remote is configured here.
+- Local dependency installation still returns npm registry `403 Forbidden`, so local build verification remains blocked in this environment.
+
+Outstanding Work:
+- In Vercel, confirm the project Root Directory is the repository root and Output Directory is unset/framework default.
+- Confirm the visited URL is attached to the Ready deployment and that the production/preview branch configuration matches the URL being tested.
