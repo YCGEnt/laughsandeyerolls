@@ -7,5 +7,7 @@ Phase 1 uses lightweight CSS gradients and subtle framing to suggest the approve
 - **Fog Beacon Linen:** Ivory linen and fog gray base washes for page backgrounds.
 - **Cinematic Vignette Frame:** Espresso hero frame for the featured image placeholder.
 - **Travel Chapter Wash:** Soft crimson and espresso abstract map placeholder for travel memories.
+- **Cinematic Vignette Frame:** Cocoa and espresso hero frame for the featured image placeholder.
+- **Travel Chapter Wash:** Soft crimson and cocoa abstract map placeholder for travel memories.
 
 These treatments should remain quiet, editorial, and supportive of storytelling.
