@@ -40,6 +40,7 @@ export default function Home() {
               variant="compact"
             />
           </a>
+          <span>Family Archive</span>
           <span className="hidden sm:inline">Preserving presence</span>
         </nav>
 
@@ -54,6 +55,9 @@ export default function Home() {
               priority
               variant="primary"
             />
+            <h1 className="font-display text-5xl leading-[0.95] tracking-tight text-espresso sm:text-6xl lg:text-7xl">
+              Laughs &<br /> Eye Rolls
+            </h1>
             <p className="mt-5 text-xl font-light tracking-[0.08em] text-cocoa-brown sm:text-2xl">
               Adventures with Ms. Murphy
             </p>
@@ -191,6 +195,7 @@ export default function Home() {
       <footer className="border-t border-cocoa-brown/15 px-5 py-10 sm:px-8 lg:px-12">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 text-sm text-cocoa-brown/75 sm:flex-row sm:items-center sm:justify-between">
           <Wordmark className="h-auto w-40 sm:w-48" variant="compact" />
+          <p className="font-display text-2xl text-espresso">Laughs & Eye Rolls</p>
           <p>Built to preserve memories, humor, and the occasional excellent side-eye.</p>
         </div>
       </footer>
