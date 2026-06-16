@@ -349,3 +349,30 @@ Known Issues:
 Outstanding Work:
 - In Vercel, confirm the project Root Directory is the repository root and Output Directory is unset/framework default.
 - Confirm the visited URL is attached to the Ready deployment and that the production/preview branch configuration matches the URL being tested.
+
+### 2026-06-16
+
+Completed:
+- Updated the homepage to use supplied SVG wordmark asset paths instead of recreating the Laughs & Eye Rolls wordmark with typography.
+- Added a reusable `Wordmark` component for primary and compact SVG usage.
+- Documented required public asset filenames and wordmark usage rules.
+
+Files Created:
+- `components/wordmark.tsx`
+- `public/brand/README.md`
+- `docs/brand/wordmark-usage.md`
+
+Files Modified:
+- `app/page.tsx`
+- `AGENTS.md`
+- `DECISIONS.md`
+
+Refactors Performed:
+- Replaced typographic hero, navigation, and footer wordmark treatments with SVG image references.
+
+Known Issues:
+- The supplied SVG files were referenced from the user's local Windows downloads path but are not present inside this container. The app expects them at `public/brand/Espresso-wordmark-primary.svg` and `public/brand/Espresso-wordmark-compact.svg`.
+- Local dependency installation still returns npm registry `403 Forbidden`, so local build verification remains blocked in this environment.
+
+Outstanding Work:
+- Add the original supplied SVG assets to `public/brand/` using the exact filenames documented above.

@@ -1,3 +1,5 @@
+import { Wordmark } from "../components/wordmark";
+
 const timelineMoments = [
   {
     year: "Chapter 01",
@@ -27,6 +29,17 @@ export default function Home() {
         <div className="absolute right-0 top-0 -z-10 h-72 w-72 rounded-full bg-warm-smoke/25 blur-3xl" />
 
         <nav className="mx-auto flex max-w-7xl items-center justify-between border-b border-cocoa-brown/15 pb-5 text-xs uppercase tracking-[0.28em] text-cocoa-brown/75">
+          <a
+            aria-label="Laughs & Eye Rolls home"
+            className="inline-flex rounded-sm focus:outline-none focus:ring-2 focus:ring-vintage-crimson focus:ring-offset-4 focus:ring-offset-ivory-linen"
+            href="/"
+          >
+            <Wordmark
+              className="h-auto w-36 sm:w-44"
+              priority
+              variant="compact"
+            />
+          </a>
           <span>Family Archive</span>
           <span className="hidden sm:inline">Preserving presence</span>
         </nav>
@@ -36,6 +49,12 @@ export default function Home() {
             <p className="mb-5 text-sm font-semibold uppercase tracking-[0.38em] text-vintage-crimson">
               Cinematic memory keeping
             </p>
+            <h1 className="sr-only">Laughs & Eye Rolls</h1>
+            <Wordmark
+              className="h-auto w-full max-w-[34rem]"
+              priority
+              variant="primary"
+            />
             <h1 className="font-display text-5xl leading-[0.95] tracking-tight text-espresso sm:text-6xl lg:text-7xl">
               Laughs &<br /> Eye Rolls
             </h1>
@@ -175,6 +194,7 @@ export default function Home() {
 
       <footer className="border-t border-cocoa-brown/15 px-5 py-10 sm:px-8 lg:px-12">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 text-sm text-cocoa-brown/75 sm:flex-row sm:items-center sm:justify-between">
+          <Wordmark className="h-auto w-40 sm:w-48" variant="compact" />
           <p className="font-display text-2xl text-espresso">Laughs & Eye Rolls</p>
           <p>Built to preserve memories, humor, and the occasional excellent side-eye.</p>
         </div>

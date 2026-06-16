@@ -201,3 +201,31 @@ Future deployments should use the Next.js framework preset and the repository pa
 **Status**
 
 Active
+
+---
+
+## 2026-06-16
+
+### Supplied SVG Wordmark Assets
+
+**Decision**
+
+Use the supplied Espresso SVG wordmark assets for brand rendering instead of recreating the Laughs & Eye Rolls wordmark with typography.
+
+**Reasoning**
+
+The wordmark is brand artwork, not a text treatment. Using the supplied SVG assets preserves brand consistency across hero sections, navigation, footer, mobile headers, and constrained spaces.
+
+**Alternatives Considered**
+
+- Continue rendering the wordmark with `Cinzel Decorative`, rejected because the user explicitly instructed not to recreate the wordmark using typography.
+- Recreate placeholder SVG artwork in the repository, rejected because the user specifically required the supplied assets.
+- Inline the SVG artwork in React components, rejected because the source SVG files are the canonical brand assets and should remain replaceable in `public/brand/`.
+
+**Impact**
+
+Hero sections should use `Espresso-wordmark-primary.svg`; navigation, footer, mobile headers, and constrained spaces should use `Espresso-wordmark-compact.svg`. Future contributors should reference the `Wordmark` component and must not approximate the wordmark with text.
+
+**Status**
+
+Active
