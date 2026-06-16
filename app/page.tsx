@@ -28,6 +28,7 @@ export default function Home() {
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(159,45,45,0.16),transparent_32rem),linear-gradient(135deg,rgba(246,241,234,0.96),rgba(216,214,210,0.7))]" />
         <div className="absolute right-0 top-0 -z-10 h-72 w-72 rounded-full bg-warm-smoke/25 blur-3xl" />
 
+        <nav className="mx-auto flex max-w-7xl items-center justify-between border-b border-espresso/15 pb-5 text-xs uppercase tracking-[0.28em] text-espresso/75">
         <nav className="mx-auto flex max-w-7xl items-center justify-between border-b border-cocoa-brown/15 pb-5 text-xs uppercase tracking-[0.28em] text-cocoa-brown/75">
           <a
             aria-label="Laughs & Eye Rolls home"
@@ -55,6 +56,10 @@ export default function Home() {
               priority
               variant="primary"
             />
+            <p className="mt-5 text-xl font-light tracking-[0.08em] text-espresso sm:text-2xl">
+              Adventures with Ms. Murphy
+            </p>
+            <p className="mt-8 max-w-2xl text-lg leading-8 text-espresso/85">
             <h1 className="font-display text-5xl leading-[0.95] tracking-tight text-espresso sm:text-6xl lg:text-7xl">
               Laughs &<br /> Eye Rolls
             </h1>
@@ -74,6 +79,7 @@ export default function Home() {
                 Begin the archive
               </a>
               <a
+                className="rounded-full border border-espresso/25 px-6 py-3 text-center text-sm font-bold uppercase tracking-[0.22em] text-espresso transition duration-300 hover:-translate-y-0.5 hover:border-vintage-crimson hover:text-vintage-crimson focus:outline-none focus:ring-2 focus:ring-espresso focus:ring-offset-4 focus:ring-offset-ivory-linen"
                 className="rounded-full border border-cocoa-brown/25 px-6 py-3 text-center text-sm font-bold uppercase tracking-[0.22em] text-cocoa-brown transition duration-300 hover:-translate-y-0.5 hover:border-vintage-crimson hover:text-vintage-crimson focus:outline-none focus:ring-2 focus:ring-cocoa-brown focus:ring-offset-4 focus:ring-offset-ivory-linen"
                 href="#travel"
               >
@@ -82,6 +88,8 @@ export default function Home() {
             </div>
           </div>
 
+          <div className="animate-soft-reveal rounded-[2rem] border border-espresso/15 bg-ivory-linen/70 p-4 shadow-2xl shadow-espresso/10 [animation-delay:160ms] lg:p-5">
+            <div className="relative min-h-[28rem] overflow-hidden rounded-[1.5rem] bg-[linear-gradient(145deg,rgba(47,33,29,0.88),rgba(47,33,29,0.72)),radial-gradient(circle_at_30%_20%,rgba(246,241,234,0.24),transparent_18rem)] p-8 text-ivory-linen">
           <div className="animate-soft-reveal rounded-[2rem] border border-cocoa-brown/15 bg-ivory-linen/70 p-4 shadow-2xl shadow-cocoa-brown/10 [animation-delay:160ms] lg:p-5">
             <div className="relative min-h-[28rem] overflow-hidden rounded-[1.5rem] bg-[linear-gradient(145deg,rgba(47,33,29,0.88),rgba(75,54,47,0.72)),radial-gradient(circle_at_30%_20%,rgba(246,241,234,0.24),transparent_18rem)] p-8 text-ivory-linen">
               <div className="absolute inset-x-8 top-8 h-px bg-ivory-linen/35" />
@@ -116,6 +124,8 @@ export default function Home() {
               The archive begins with personality.
             </h2>
           </div>
+          <article className="rounded-[2rem] border border-espresso/15 bg-white/45 p-8 shadow-xl shadow-espresso/5">
+            <p className="text-sm font-bold uppercase tracking-[0.26em] text-espresso/60">
           <article className="rounded-[2rem] border border-cocoa-brown/15 bg-white/45 p-8 shadow-xl shadow-cocoa-brown/5">
             <p className="text-sm font-bold uppercase tracking-[0.26em] text-cocoa-brown/60">
               Story card placeholder
@@ -123,11 +133,13 @@ export default function Home() {
             <h3 className="mt-5 text-2xl font-bold text-espresso">
               The Look That Required No Translation
             </h3>
+            <p className="mt-4 text-lg leading-8 text-espresso/85">
             <p className="mt-4 text-lg leading-8 text-cocoa-brown/85">
               Some family stories need dates. Others need timing, tone, and the
               exact pause before Ms. Murphy decided whether the room deserved a
               laugh, an eye roll, or both.
             </p>
+            <p className="mt-6 border-l-2 border-vintage-crimson pl-5 text-base italic leading-7 text-espresso">
             <p className="mt-6 border-l-2 border-vintage-crimson pl-5 text-base italic leading-7 text-cocoa-brown">
               “We are saving the moment before the punchline, too.”
             </p>
@@ -135,6 +147,7 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="bg-espresso px-5 py-16 text-ivory-linen sm:px-8 lg:px-12">
       <section className="bg-cocoa-brown px-5 py-16 text-ivory-linen sm:px-8 lg:px-12">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-3xl">
@@ -164,6 +177,9 @@ export default function Home() {
 
       <section id="travel" className="px-5 py-16 sm:px-8 lg:px-12">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
+          <div className="rounded-[2rem] border border-espresso/15 bg-[linear-gradient(135deg,rgba(216,214,210,0.75),rgba(246,241,234,0.95))] p-8">
+            <div className="aspect-[4/3] rounded-[1.5rem] border border-espresso/15 bg-[radial-gradient(circle_at_28%_32%,rgba(159,45,45,0.22),transparent_8rem),radial-gradient(circle_at_70%_64%,rgba(47,33,29,0.18),transparent_9rem)] p-6">
+              <div className="flex h-full flex-col justify-between rounded-[1rem] border border-dashed border-espresso/30 p-6 text-espresso">
           <div className="rounded-[2rem] border border-cocoa-brown/15 bg-[linear-gradient(135deg,rgba(216,214,210,0.75),rgba(246,241,234,0.95))] p-8">
             <div className="aspect-[4/3] rounded-[1.5rem] border border-cocoa-brown/15 bg-[radial-gradient(circle_at_28%_32%,rgba(159,45,45,0.22),transparent_8rem),radial-gradient(circle_at_70%_64%,rgba(75,54,47,0.18),transparent_9rem)] p-6">
               <div className="flex h-full flex-col justify-between rounded-[1rem] border border-dashed border-cocoa-brown/30 p-6 text-cocoa-brown">
@@ -183,6 +199,7 @@ export default function Home() {
             <h2 className="mt-4 font-display text-4xl leading-tight sm:text-5xl">
               Every destination gets the commentary it deserves.
             </h2>
+            <p className="mt-6 text-lg leading-8 text-espresso/85">
             <p className="mt-6 text-lg leading-8 text-cocoa-brown/85">
               Future travel chapters can gather photos, routes, captions, family
               jokes, and the wonderfully specific details that never make it into
@@ -192,6 +209,9 @@ export default function Home() {
         </div>
       </section>
 
+      <footer className="border-t border-espresso/15 px-5 py-10 sm:px-8 lg:px-12">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 text-sm text-espresso/75 sm:flex-row sm:items-center sm:justify-between">
+          <Wordmark className="h-auto w-40 sm:w-48" variant="compact" />
       <footer className="border-t border-cocoa-brown/15 px-5 py-10 sm:px-8 lg:px-12">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 text-sm text-cocoa-brown/75 sm:flex-row sm:items-center sm:justify-between">
           <Wordmark className="h-auto w-40 sm:w-48" variant="compact" />

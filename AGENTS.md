@@ -118,8 +118,6 @@ Quotes:
 Espresso:
 #2F211D
 
-Cocoa Brown:
-#4B362F
 
 Vintage Crimson:
 #9F2D2D
@@ -376,3 +374,27 @@ Known Issues:
 
 Outstanding Work:
 - Add the original supplied SVG assets to `public/brand/` using the exact filenames documented above.
+
+### 2026-06-16
+
+Completed:
+- Replaced Cocoa Brown usage in the homepage with Espresso for text, borders, shadows, section backgrounds, focus rings, and gradient accents.
+- Removed Cocoa Brown from the active documented color palette so Espresso is the brown brand color used by implementation.
+- Updated background concept language to reference Espresso instead of Cocoa Brown.
+
+Files Modified:
+- `app/page.tsx`
+- `styles/globals.css`
+- `README.md`
+- `AGENTS.md`
+- `DECISIONS.md`
+- `docs/brand/background-concepts.md`
+
+Refactors Performed:
+- Consolidated brown-toned styling around the Espresso token instead of maintaining separate Cocoa Brown styling in the UI.
+
+Known Issues:
+- Local dependency installation still returns npm registry `403 Forbidden`, so local build and lint verification remain blocked in this environment.
+
+Outstanding Work:
+- Run `npm install`, `npm run build`, and `npm run lint` in an environment with npm registry access.

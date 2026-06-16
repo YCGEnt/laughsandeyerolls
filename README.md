@@ -82,7 +82,6 @@ The relationship between Ola and Ms. Murphy should always feel:
 | Name                          | Hex     |
 | ----------------------------- | ------- |
 | Kenpōzome Black (Espresso)    | #2F211D |
-| Chicory Coffee (Cocoa Brown)  | #4B362F |
 | Dorset Naga (Vintage Crimson) | #9F2D2D |
 | Ashes (Warm Smoke)            | #B8B4AE |
 | Fog Beacon (Fog Gray)         | #D8D6D2 |

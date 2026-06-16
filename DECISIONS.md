@@ -229,3 +229,30 @@ Hero sections should use `Espresso-wordmark-primary.svg`; navigation, footer, mo
 **Status**
 
 Active
+
+---
+
+## 2026-06-16
+
+### Espresso as the Active Brown UI Color
+
+**Decision**
+
+Use Espresso as the active brown color throughout the Phase 1 interface instead of Cocoa Brown.
+
+**Reasoning**
+
+The user explicitly requested Espresso instead of Cocoa Brown. Consolidating the UI around Espresso keeps the palette warmer, more focused, and better aligned with the supplied Espresso wordmark assets.
+
+**Alternatives Considered**
+
+- Keep Cocoa Brown as a secondary UI brown, rejected because the instruction was to use Espresso instead.
+- Alias Cocoa Brown to Espresso, rejected because retaining the Cocoa Brown token would make future usage ambiguous.
+
+**Impact**
+
+New UI styling should use the Espresso token for brown text, borders, backgrounds, focus rings, shadows, and branded gradients. Cocoa Brown should not be introduced in new implementation unless the design direction changes again.
+
+**Status**
+
+Active
