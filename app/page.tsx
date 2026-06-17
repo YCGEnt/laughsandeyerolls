@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { SoftReveal } from "../components/soft-reveal";
 import { Wordmark } from "../components/wordmark";
 
 const timelineMoments = [
@@ -29,7 +31,7 @@ export default function Home() {
         <div className="absolute right-0 top-0 -z-10 h-72 w-72 rounded-full bg-warm-smoke/25 blur-3xl" />
 
         <nav className="mx-auto flex max-w-7xl items-center justify-between border-b border-cocoa-brown/15 pb-5 text-xs uppercase tracking-[0.28em] text-cocoa-brown/75">
-          <a
+          <Link
             aria-label="Laughs & Eye Rolls home"
             className="inline-flex rounded-sm focus:outline-none focus:ring-2 focus:ring-vintage-crimson focus:ring-offset-4 focus:ring-offset-ivory-linen"
             href="/"
@@ -39,13 +41,13 @@ export default function Home() {
               priority
               variant="compact"
             />
-          </a>
+          </Link>
           <span>Family Archive</span>
           <span className="hidden sm:inline">Preserving presence</span>
         </nav>
 
         <div className="mx-auto grid max-w-7xl gap-12 pt-14 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:pt-20">
-          <div className="animate-soft-reveal">
+          <SoftReveal>
             <p className="mb-5 text-sm font-semibold uppercase tracking-[0.38em] text-vintage-crimson">
               Cinematic memory keeping
             </p>
@@ -80,9 +82,12 @@ export default function Home() {
                 Preview travels
               </a>
             </div>
-          </div>
+          </SoftReveal>
 
-          <div className="animate-soft-reveal rounded-[2rem] border border-cocoa-brown/15 bg-ivory-linen/70 p-4 shadow-2xl shadow-cocoa-brown/10 [animation-delay:160ms] lg:p-5">
+          <SoftReveal
+            className="rounded-[2rem] border border-cocoa-brown/15 bg-ivory-linen/70 p-4 shadow-2xl shadow-cocoa-brown/10 lg:p-5"
+            transition={{ delay: 0.16, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          >
             <div className="relative min-h-[28rem] overflow-hidden rounded-[1.5rem] bg-[linear-gradient(145deg,rgba(47,33,29,0.88),rgba(75,54,47,0.72)),radial-gradient(circle_at_30%_20%,rgba(246,241,234,0.24),transparent_18rem)] p-8 text-ivory-linen">
               <div className="absolute inset-x-8 top-8 h-px bg-ivory-linen/35" />
               <div className="absolute bottom-10 right-8 h-32 w-24 rounded-t-full border border-ivory-linen/25 bg-ivory-linen/10" />
@@ -102,7 +107,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </SoftReveal>
         </div>
       </section>
 
