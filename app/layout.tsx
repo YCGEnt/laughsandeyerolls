@@ -13,8 +13,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(() => {
+  try {
+    const savedTheme = window.localStorage.getItem("laughs-eye-rolls-theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    document.documentElement.dataset.theme = savedTheme || (prefersDark ? "dark" : "light");
+  } catch {
+    document.documentElement.dataset.theme = "light";
+  }
+})();`,
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }
