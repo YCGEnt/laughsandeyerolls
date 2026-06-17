@@ -34,7 +34,7 @@ export default function Home() {
         <nav className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 border-b border-line pb-5 text-xs uppercase tracking-[0.28em] text-muted">
           <Link
             aria-label="Laughs & Eye Rolls home"
-            className="inline-flex rounded-sm focus:outline-none focus:ring-2 focus:ring-vintage-crimson focus:ring-offset-4 focus:ring-offset-page"
+            className="inline-flex rounded-sm focus:outline-none focus:ring-2 focus:ring-accent-primary focus:ring-offset-4 focus:ring-offset-page"
             href="/"
           >
             <Wordmark
@@ -52,7 +52,7 @@ export default function Home() {
 
         <div className="mx-auto grid max-w-7xl gap-12 pt-14 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:pt-20">
           <SoftReveal>
-            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.38em] text-vintage-crimson">
+            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.38em] text-accent-primary">
               The Archive Opens
             </p>
             <h1 className="sr-only">Laughs & Eye Rolls</h1>
@@ -74,13 +74,13 @@ export default function Home() {
             </p>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <a
-                className="rounded-full bg-vintage-crimson px-6 py-3 text-center text-sm font-bold uppercase tracking-[0.22em] text-ivory-linen shadow-xl shadow-vintage-crimson/15 transition duration-300 hover:-translate-y-0.5 hover:bg-ink hover:text-page focus:outline-none focus:ring-2 focus:ring-vintage-crimson focus:ring-offset-4 focus:ring-offset-page"
+                className="rounded-full bg-accent-primary px-6 py-3 text-center text-sm font-bold uppercase tracking-[0.22em] text-parchment-surface shadow-xl shadow-red-950/20 transition duration-300 hover:-translate-y-0.5 hover:bg-accent-hover focus:outline-none focus:ring-2 focus:ring-accent-primary focus:ring-offset-4 focus:ring-offset-page"
                 href="#featured-story"
               >
                 Begin the archive
               </a>
               <a
-                className="rounded-full border border-line px-6 py-3 text-center text-sm font-bold uppercase tracking-[0.22em] text-muted transition duration-300 hover:-translate-y-0.5 hover:border-vintage-crimson hover:text-vintage-crimson focus:outline-none focus:ring-2 focus:ring-muted focus:ring-offset-4 focus:ring-offset-page"
+                className="rounded-full border border-line px-6 py-3 text-center text-sm font-bold uppercase tracking-[0.22em] text-muted transition duration-300 hover:-translate-y-0.5 hover:border-accent-primary hover:text-accent-primary focus:outline-none focus:ring-2 focus:ring-muted focus:ring-offset-4 focus:ring-offset-page"
                 href="#travel"
               >
                 Preview travels
@@ -96,19 +96,19 @@ export default function Home() {
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            <div className="portrait-scene relative min-h-[28rem] overflow-hidden rounded-[1.5rem] p-8 text-ivory-linen">
-              <div className="absolute inset-x-8 top-8 h-px bg-ivory-linen/35" />
-              <div className="absolute bottom-10 right-8 h-32 w-24 rounded-t-full border border-ivory-linen/25 bg-ivory-linen/10" />
-              <div className="absolute bottom-16 left-8 h-40 w-28 rounded-full border border-ivory-linen/20 bg-warm-smoke/10 blur-[1px]" />
+            <div className="portrait-scene relative min-h-[28rem] overflow-hidden rounded-[1.5rem] p-8 text-text-primary">
+              <div className="absolute inset-x-8 top-8 h-px bg-border-strong" />
+              <div className="absolute bottom-10 right-8 h-32 w-24 rounded-t-full border border-border-subtle bg-parchment-surface/10" />
+              <div className="absolute bottom-16 left-8 h-40 w-28 rounded-full border border-border-subtle bg-parchment-accent/10 blur-[1px]" />
               <div className="relative z-10 flex h-full min-h-[24rem] flex-col justify-between">
-                <p className="max-w-xs text-sm uppercase tracking-[0.32em] text-fog-gray">
+                <p className="max-w-xs text-sm uppercase tracking-[0.32em] text-text-secondary">
                   [FEATURED IMAGE]
                 </p>
                 <div>
                   <p className="font-display text-4xl leading-tight">
                     [PHOTO PLACEHOLDER]
                   </p>
-                  <p className="mt-4 max-w-sm text-sm leading-6 text-fog-gray">
+                  <p className="mt-4 max-w-sm text-sm leading-6 text-text-secondary">
                     Until the family selects the image, this frame keeps the page
                     elegant without borrowing someone else&apos;s memory.
                   </p>
@@ -122,7 +122,7 @@ export default function Home() {
       <section id="featured-story" className="px-5 py-16 sm:px-8 lg:px-12">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-stretch">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.32em] text-vintage-crimson">
+            <p className="text-sm font-bold uppercase tracking-[0.32em] text-accent-primary">
               Featured story
             </p>
             <h2 className="mt-4 font-display text-4xl leading-tight text-ink sm:text-5xl">
@@ -141,7 +141,7 @@ export default function Home() {
               exact pause before Ms. Murphy decided whether the room deserved a
               laugh, an eye roll, or both.
             </p>
-            <p className="mt-6 border-l-2 border-vintage-crimson pl-5 text-base italic leading-7 text-muted">
+            <p className="mt-6 border-l-2 border-accent-primary pl-5 text-base italic leading-7 text-muted">
               &quot;We are saving the moment before the punchline, too.&quot;
             </p>
           </article>
@@ -151,7 +151,7 @@ export default function Home() {
       <section className="archive-band px-5 py-16 sm:px-8 lg:px-12">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-3xl">
-            <p className="text-sm font-bold uppercase tracking-[0.32em] text-fog-gray">
+            <p className="text-sm font-bold uppercase tracking-[0.32em] text-text-secondary">
               Timeline preview
             </p>
             <h2 className="mt-4 font-display text-4xl sm:text-5xl">
@@ -161,14 +161,14 @@ export default function Home() {
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {timelineMoments.map((moment) => (
               <article
-                className="display-case rounded-[1.5rem] border border-ivory-linen/15 bg-ivory-linen/[0.06] p-6 transition duration-300 hover:-translate-y-1 hover:bg-ivory-linen/[0.09]"
+                className="display-case rounded-[1.5rem] border border-border-subtle bg-surface p-6 transition duration-300 hover:-translate-y-1 hover:bg-surface-elevated"
                 key={moment.title}
               >
-                <p className="text-xs font-bold uppercase tracking-[0.28em] text-warm-smoke">
+                <p className="text-xs font-bold uppercase tracking-[0.28em] text-text-muted">
                   {moment.year}
                 </p>
                 <h3 className="mt-4 text-xl font-bold">{moment.title}</h3>
-                <p className="mt-3 leading-7 text-fog-gray">{moment.description}</p>
+                <p className="mt-3 leading-7 text-text-secondary">{moment.description}</p>
               </article>
             ))}
           </div>
@@ -190,7 +190,7 @@ export default function Home() {
             </div>
           </div>
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.32em] text-vintage-crimson">
+            <p className="text-sm font-bold uppercase tracking-[0.32em] text-accent-primary">
               Travel memories
             </p>
             <h2 className="mt-4 font-display text-4xl leading-tight sm:text-5xl">
