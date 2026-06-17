@@ -1,28 +1,8 @@
 import Link from "next/link";
 import { SoftReveal } from "../components/soft-reveal";
 import { ThemeToggle } from "../components/theme-toggle";
+import { TimelineExperience } from "../components/timeline-experience";
 import { Wordmark } from "../components/wordmark";
-
-const timelineMoments = [
-  {
-    year: "Chapter 01",
-    title: "The stories that started it",
-    description:
-      "A place for origin stories, signature sayings, and the details everyone swears they will never forget.",
-  },
-  {
-    year: "Chapter 02",
-    title: "Trips worth retelling",
-    description:
-      "Travel memories with room for the detours, side comments, and highly specific snack opinions.",
-  },
-  {
-    year: "Chapter 03",
-    title: "Everyday evidence",
-    description:
-      "Small moments, dry observations, and the family lore that proves personality lives in the details.",
-  },
-];
 
 export default function Home() {
   return (
@@ -148,32 +128,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="archive-band px-5 py-16 sm:px-8 lg:px-12">
-        <div className="mx-auto max-w-7xl">
-          <div className="max-w-3xl">
-            <p className="text-sm font-bold uppercase tracking-[0.32em] text-text-secondary">
-              Timeline preview
-            </p>
-            <h2 className="mt-4 font-display text-4xl sm:text-5xl">
-              A life arranged by stories, not just dates.
-            </h2>
-          </div>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {timelineMoments.map((moment) => (
-              <article
-                className="display-case rounded-[1.5rem] border border-border-subtle bg-surface p-6 transition duration-300 hover:-translate-y-1 hover:bg-surface-elevated"
-                key={moment.title}
-              >
-                <p className="text-xs font-bold uppercase tracking-[0.28em] text-text-muted">
-                  {moment.year}
-                </p>
-                <h3 className="mt-4 text-xl font-bold">{moment.title}</h3>
-                <p className="mt-3 leading-7 text-text-secondary">{moment.description}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TimelineExperience />
 
       <section id="travel" className="px-5 py-16 sm:px-8 lg:px-12">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
