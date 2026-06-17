@@ -75,11 +75,11 @@
   --theme-archive-shadow: rgba(32, 22, 19, 0.14);
   --theme-accent-primary: #9f2d2d;
   --theme-accent-hover: #772222;
-  --theme-border-subtle: rgba(95, 66, 58, 0.18);
-  --theme-border-strong: rgba(95, 66, 58, 0.28);
+  --theme-border-subtle: rgba(47, 33, 29, 0.18);
+  --theme-border-strong: rgba(47, 33, 29, 0.3);
   --theme-text-primary: #2f211d;
-  --theme-text-secondary: #4b362f;
-  --theme-text-muted: #7e584e;
+  --theme-text-secondary: #2f211d;
+  --theme-text-muted: #3f2c27;
   --theme-parchment-surface: #f7f3ed;
   --theme-parchment-accent: #c2a070;
   --theme-page: var(--theme-background);
@@ -221,7 +221,7 @@ body {
 }
 
 .archive-band {
-  background: #4b362f;
+  background: #2f211d;
   color: #f6f1ea;
 }
 
