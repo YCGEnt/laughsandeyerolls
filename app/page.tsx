@@ -26,10 +26,10 @@ const timelineMoments = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-hidden bg-page text-ink transition-colors duration-300">
+    <main className="archive-home min-h-screen overflow-hidden bg-page text-ink transition-colors duration-300">
       <section className="relative isolate px-5 pb-16 pt-8 sm:px-8 lg:px-12 lg:pb-24">
         <div className="hero-wash absolute inset-0 -z-10" />
-        <div className="absolute right-0 top-0 -z-10 h-72 w-72 rounded-full bg-warm-smoke/25 blur-3xl" />
+        <div className="archive-spotlight absolute right-0 top-0 -z-10 h-80 w-80" />
 
         <nav className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 border-b border-line pb-5 text-xs uppercase tracking-[0.28em] text-muted">
           <Link
@@ -53,16 +53,16 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl gap-12 pt-14 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:pt-20">
           <SoftReveal>
             <p className="mb-5 text-sm font-semibold uppercase tracking-[0.38em] text-vintage-crimson">
-              Cinematic memory keeping
+              The Archive Opens
             </p>
             <h1 className="sr-only">Laughs & Eye Rolls</h1>
             <Wordmark
-              className="h-auto w-full max-w-[34rem]"
+              className="w-full max-w-[28rem]"
               priority
               variant="primary"
             />
-            <h1 className="font-display text-5xl leading-[0.95] tracking-tight text-ink sm:text-6xl lg:text-7xl">
-              Laughs &<br /> Eye Rolls
+            <h1 className="mt-8 max-w-2xl font-display text-5xl leading-[0.95] tracking-tight text-ink sm:text-6xl lg:text-7xl">
+              The Archive Opens
             </h1>
             <p className="mt-5 text-xl font-light tracking-[0.08em] text-muted sm:text-2xl">
               Adventures with Ms. Murphy
@@ -89,7 +89,7 @@ export default function Home() {
           </SoftReveal>
 
           <SoftReveal
-            className="rounded-[2rem] border border-line bg-panel-strong p-4 shadow-2xl shadow-cocoa-brown/10 lg:p-5"
+            className="display-case rounded-[2rem] border border-line bg-panel-strong p-4 lg:p-5"
             transition={{
               delay: 0.16,
               duration: 0.7,
@@ -102,11 +102,11 @@ export default function Home() {
               <div className="absolute bottom-16 left-8 h-40 w-28 rounded-full border border-ivory-linen/20 bg-warm-smoke/10 blur-[1px]" />
               <div className="relative z-10 flex h-full min-h-[24rem] flex-col justify-between">
                 <p className="max-w-xs text-sm uppercase tracking-[0.32em] text-fog-gray">
-                  Featured image placeholder
+                  [FEATURED IMAGE]
                 </p>
                 <div>
                   <p className="font-display text-4xl leading-tight">
-                    A portrait will live here.
+                    [PHOTO PLACEHOLDER]
                   </p>
                   <p className="mt-4 max-w-sm text-sm leading-6 text-fog-gray">
                     Until the family selects the image, this frame keeps the page
@@ -129,7 +129,7 @@ export default function Home() {
               The archive begins with personality.
             </h2>
           </div>
-          <article className="rounded-[2rem] border border-line bg-panel p-8 shadow-xl shadow-cocoa-brown/5">
+          <article className="display-case rounded-[2rem] border border-line bg-panel p-8">
             <p className="text-sm font-bold uppercase tracking-[0.26em] text-muted">
               Story card placeholder
             </p>
@@ -161,7 +161,7 @@ export default function Home() {
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {timelineMoments.map((moment) => (
               <article
-                className="rounded-[1.5rem] border border-ivory-linen/15 bg-ivory-linen/[0.06] p-6 transition duration-300 hover:-translate-y-1 hover:bg-ivory-linen/[0.09]"
+                className="display-case rounded-[1.5rem] border border-ivory-linen/15 bg-ivory-linen/[0.06] p-6 transition duration-300 hover:-translate-y-1 hover:bg-ivory-linen/[0.09]"
                 key={moment.title}
               >
                 <p className="text-xs font-bold uppercase tracking-[0.28em] text-warm-smoke">
@@ -177,11 +177,11 @@ export default function Home() {
 
       <section id="travel" className="px-5 py-16 sm:px-8 lg:px-12">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
-          <div className="travel-panel rounded-[2rem] border border-line p-8">
+          <div className="display-case travel-panel rounded-[2rem] border border-line p-8">
             <div className="travel-map aspect-[4/3] rounded-[1.5rem] border border-line p-6">
               <div className="flex h-full flex-col justify-between rounded-[1rem] border border-dashed border-line p-6 text-muted">
                 <span className="text-xs font-bold uppercase tracking-[0.3em]">
-                  Travel map placeholder
+                  [TIMELINE PREVIEW]
                 </span>
                 <span className="max-w-xs text-2xl font-bold leading-tight">
                   Routes, detours, and the stories collected between them.
@@ -207,8 +207,8 @@ export default function Home() {
 
       <footer className="border-t border-line px-5 py-10 sm:px-8 lg:px-12">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
-          <Wordmark className="h-auto w-40 sm:w-48" variant="compact" />
-          <p className="font-display text-2xl text-ink">Laughs & Eye Rolls</p>
+          <Wordmark className="w-32 sm:w-40" variant="compact" />
+          <p className="font-display text-2xl text-ink">Adventures with Ms. Murphy</p>
           <p>Built to preserve memories, humor, and the occasional excellent side-eye.</p>
         </div>
       </footer>

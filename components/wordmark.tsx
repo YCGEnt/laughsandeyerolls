@@ -6,72 +6,28 @@ type WordmarkProps = {
   priority?: boolean;
 };
 
-export function Wordmark({ variant, className }: WordmarkProps) {
-  if (variant === "compact") {
-    return (
-      <svg
-        aria-label="Laughs & Eye Rolls"
-        className={className}
-        role="img"
-        viewBox="0 0 228 42"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <text
-          fill="currentColor"
-          fontFamily="Lato, Arial, sans-serif"
-          fontSize="10"
-          fontWeight="900"
-          letterSpacing="3.8"
-          x="2"
-          y="14"
-        >
-          LAUGHS &amp; EYE
-        </text>
-        <text
-          fill="currentColor"
-          fontFamily="Lato, Arial, sans-serif"
-          fontSize="10"
-          fontWeight="900"
-          letterSpacing="3.8"
-          x="2"
-          y="30"
-        >
-          ROLLS
-        </text>
-      </svg>
-    );
-  }
+const placeholderLabel: Record<WordmarkVariant, string> = {
+  primary: "[WORDMARK]",
+  compact: "[LOGO]",
+};
 
+export function Wordmark({ variant, className }: WordmarkProps) {
   return (
-    <svg
-      aria-label="Laughs & Eye Rolls"
-      className={className}
+    <span
+      aria-label={`${placeholderLabel[variant]} placeholder`}
+      className={[
+        "inline-flex items-center justify-center border border-line bg-panel text-muted",
+        "font-sans font-black uppercase tracking-[0.32em]",
+        variant === "primary"
+          ? "min-h-20 rounded-sm px-8 py-6 text-sm sm:text-base"
+          : "min-h-9 rounded-sm px-3 py-2 text-[0.58rem]",
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
       role="img"
-      viewBox="0 0 640 210"
-      xmlns="http://www.w3.org/2000/svg"
     >
-      <text
-        fill="currentColor"
-        fontFamily="Cinzel Decorative, Georgia, serif"
-        fontSize="78"
-        fontWeight="400"
-        letterSpacing="-1"
-        x="0"
-        y="82"
-      >
-        LAUGHS &amp;
-      </text>
-      <text
-        fill="currentColor"
-        fontFamily="Cinzel Decorative, Georgia, serif"
-        fontSize="78"
-        fontWeight="400"
-        letterSpacing="-1"
-        x="0"
-        y="164"
-      >
-        EYE ROLLS
-      </text>
-    </svg>
+      {placeholderLabel[variant]}
+    </span>
   );
 }

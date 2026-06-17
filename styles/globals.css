@@ -3,6 +3,7 @@
 
 @theme {
   --color-espresso: #2f211d;
+  --color-espresso-deep: #261b18;
   --color-cocoa-brown: #4b362f;
   --color-vintage-crimson: #9f2d2d;
   --color-warm-smoke: #b8b4ae;
@@ -54,6 +55,47 @@ body {
   font-family: var(--font-sans);
 }
 
+.archive-home {
+  position: relative;
+}
+
+.archive-home::before,
+.archive-home::after {
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.archive-home::before {
+  z-index: 0;
+}
+
+.archive-home::after {
+  z-index: 1;
+}
+
+.archive-home > * {
+  position: relative;
+  z-index: 2;
+}
+
+[data-theme="dark"] .archive-home::before {
+  background:
+    radial-gradient(circle at 78% 8%, rgba(246, 241, 234, 0.055), transparent 35rem),
+    radial-gradient(circle at 12% 26%, rgba(159, 45, 45, 0.07), transparent 28rem),
+    radial-gradient(circle at 50% 50%, transparent 42%, rgba(38, 27, 24, 0.4) 100%);
+}
+
+[data-theme="dark"] .archive-home::after {
+  background-image:
+    linear-gradient(rgba(246, 241, 234, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(246, 241, 234, 0.012) 1px, transparent 1px);
+  background-size: 3px 3px, 5px 5px;
+  mix-blend-mode: soft-light;
+  opacity: 0.14;
+}
+
 ::selection {
   background: rgba(159, 45, 45, 0.2);
 }
@@ -66,8 +108,34 @@ body {
 
 [data-theme="dark"] .hero-wash {
   background:
-    radial-gradient(circle at top left, rgba(159, 45, 45, 0.18), transparent 31rem),
-    linear-gradient(135deg, #2f211d 0%, #2f211d 54%, #3a2823 100%);
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.04), transparent 40%),
+    radial-gradient(circle at 18% 24%, rgba(159, 45, 45, 0.08), transparent 32rem),
+    linear-gradient(180deg, #2f211d 0%, #261b18 100%);
+}
+
+.archive-spotlight {
+  background: radial-gradient(circle, rgba(246, 241, 234, 0.16), transparent 68%);
+  filter: blur(56px);
+  opacity: 0.5;
+}
+
+[data-theme="dark"] .archive-spotlight {
+  background: radial-gradient(circle, rgba(246, 241, 234, 0.075), transparent 68%);
+  opacity: 0.72;
+}
+
+.display-case {
+  box-shadow:
+    inset 0 1px 0 rgba(246, 241, 234, 0.24),
+    inset 0 -1px 0 rgba(47, 33, 29, 0.12),
+    0 18px 50px rgba(47, 33, 29, 0.12);
+}
+
+[data-theme="dark"] .display-case {
+  box-shadow:
+    inset 0 1px 0 rgba(246, 241, 234, 0.16),
+    inset 0 0 32px rgba(246, 241, 234, 0.025),
+    0 22px 58px rgba(38, 27, 24, 0.42);
 }
 
 .portrait-scene {
@@ -78,8 +146,9 @@ body {
 
 [data-theme="dark"] .portrait-scene {
   background:
-    linear-gradient(145deg, rgba(47, 33, 29, 0.98), rgba(47, 33, 29, 0.9)),
-    radial-gradient(circle at 30% 20%, rgba(159, 45, 45, 0.18), transparent 18rem);
+    radial-gradient(circle at 22% 72%, rgba(246, 241, 234, 0.075), transparent 13rem),
+    radial-gradient(circle at 78% 18%, rgba(159, 45, 45, 0.11), transparent 16rem),
+    linear-gradient(145deg, rgba(47, 33, 29, 0.98), rgba(38, 27, 24, 0.92));
 }
 
 .archive-band {
@@ -89,7 +158,8 @@ body {
 
 [data-theme="dark"] .archive-band {
   background:
-    linear-gradient(180deg, #2f211d 0%, #2a1d19 100%);
+    radial-gradient(circle at 50% 0%, rgba(246, 241, 234, 0.045), transparent 31rem),
+    linear-gradient(180deg, #2f211d 0%, #261b18 100%);
   color: #f6f1ea;
 }
 
@@ -100,7 +170,8 @@ body {
 
 [data-theme="dark"] .travel-panel {
   background:
-    linear-gradient(135deg, rgba(246, 241, 234, 0.07), rgba(47, 33, 29, 0.96));
+    radial-gradient(circle at 34% 38%, rgba(159, 45, 45, 0.08), transparent 15rem),
+    linear-gradient(135deg, rgba(246, 241, 234, 0.065), rgba(38, 27, 24, 0.88));
 }
 
 .travel-map {
@@ -111,8 +182,9 @@ body {
 
 [data-theme="dark"] .travel-map {
   background:
-    radial-gradient(circle at 28% 32%, rgba(159, 45, 45, 0.32), transparent 8rem),
-    radial-gradient(circle at 70% 64%, rgba(246, 241, 234, 0.12), transparent 9rem);
+    radial-gradient(circle at 28% 32%, rgba(159, 45, 45, 0.14), transparent 8rem),
+    radial-gradient(circle at 70% 64%, rgba(246, 241, 234, 0.08), transparent 9rem),
+    linear-gradient(135deg, rgba(47, 33, 29, 0.56), rgba(38, 27, 24, 0.78));
 }
 
 @keyframes soft-reveal {
