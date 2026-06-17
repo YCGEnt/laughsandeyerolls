@@ -67,7 +67,7 @@ export function ThemeToggle() {
             onClick={() => updateTheme(mode)}
             type="button"
           >
-            {mode}
+            {mode.toUpperCase()}
           </button>
         );
       })}

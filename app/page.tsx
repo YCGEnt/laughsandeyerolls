@@ -148,7 +148,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-cocoa-brown px-5 py-16 text-ivory-linen sm:px-8 lg:px-12">
+      <section className="archive-band px-5 py-16 sm:px-8 lg:px-12">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-3xl">
             <p className="text-sm font-bold uppercase tracking-[0.32em] text-fog-gray">

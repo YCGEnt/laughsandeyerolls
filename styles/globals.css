@@ -39,8 +39,8 @@
   --theme-ink: #f6f1ea;
   --theme-muted: #d8d6d2;
   --theme-soft: #b8b4ae;
-  --theme-panel: rgba(246, 241, 234, 0.08);
-  --theme-panel-strong: rgba(75, 54, 47, 0.68);
+  --theme-panel: rgba(246, 241, 234, 0.07);
+  --theme-panel-strong: rgba(246, 241, 234, 0.06);
   --theme-line: rgba(246, 241, 234, 0.18);
   color-scheme: dark;
 }
@@ -66,8 +66,8 @@ body {
 
 [data-theme="dark"] .hero-wash {
   background:
-    radial-gradient(circle at top left, rgba(159, 45, 45, 0.28), transparent 32rem),
-    linear-gradient(135deg, rgba(47, 33, 29, 0.98), rgba(75, 54, 47, 0.86));
+    radial-gradient(circle at top left, rgba(159, 45, 45, 0.18), transparent 31rem),
+    linear-gradient(135deg, #2f211d 0%, #2f211d 54%, #3a2823 100%);
 }
 
 .portrait-scene {
@@ -78,8 +78,19 @@ body {
 
 [data-theme="dark"] .portrait-scene {
   background:
-    linear-gradient(145deg, rgba(246, 241, 234, 0.13), rgba(75, 54, 47, 0.72)),
-    radial-gradient(circle at 30% 20%, rgba(159, 45, 45, 0.22), transparent 18rem);
+    linear-gradient(145deg, rgba(47, 33, 29, 0.98), rgba(47, 33, 29, 0.9)),
+    radial-gradient(circle at 30% 20%, rgba(159, 45, 45, 0.18), transparent 18rem);
+}
+
+.archive-band {
+  background: #4b362f;
+  color: #f6f1ea;
+}
+
+[data-theme="dark"] .archive-band {
+  background:
+    linear-gradient(180deg, #2f211d 0%, #2a1d19 100%);
+  color: #f6f1ea;
 }
 
 .travel-panel {
@@ -89,7 +100,7 @@ body {
 
 [data-theme="dark"] .travel-panel {
   background:
-    linear-gradient(135deg, rgba(75, 54, 47, 0.92), rgba(47, 33, 29, 0.96));
+    linear-gradient(135deg, rgba(246, 241, 234, 0.07), rgba(47, 33, 29, 0.96));
 }
 
 .travel-map {
