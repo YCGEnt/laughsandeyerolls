@@ -1,125 +1,68 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-
-type TimelineEntry = {
-  id: string;
-  date: string;
-  title: string;
-  body: string;
-  quote?: string;
-  media?: "photo" | "audio";
-};
-
-type TimelineChapter = {
-  type: "chapter";
-  id: string;
-  title: string;
-  subtitle: string;
-};
-
-type TimelineStory = {
-  type: "story";
-  side: "left" | "right";
-  entry: TimelineEntry;
-};
-
-type TimelineItem = TimelineChapter | TimelineStory;
-
-const timelineItems: TimelineItem[] = [
-  {
-    type: "chapter",
-    id: "beginning",
-    title: "The Charlotte Era Begins",
-    subtitle: "The opening pages of a family archive, arranged by presence instead of paperwork.",
-  },
-  {
-    type: "story",
-    side: "left",
-    entry: {
-      id: "annie-arrives",
-      date: "March 4, 1947",
-      title: "Annie Arrives",
-      body:
-        'Andrea "Andy" Murphy enters the world and immediately begins a lifelong commitment to strong opinions, excellent commentary, and keeping everybody in line.',
-      quote: "Some stories begin with a date. This one begins with a personality.",
-      media: "photo",
-    },
-  },
-  {
-    type: "story",
-    side: "right",
-    entry: {
-      id: "daily-question",
-      date: "Chapter Marker",
-      title: "The Daily Question Era",
-      body:
-        "Every family has rituals. Some arrive as recipes, some as phone calls, and some as the exact question that tells everyone the day has officially started.",
-      media: "audio",
-    },
-  },
-  {
-    type: "chapter",
-    id: "motion",
-    title: "The Cruise Years",
-    subtitle: "Travel chapters, detours, and the commentary that made every itinerary better.",
-  },
-  {
-    type: "story",
-    side: "left",
-    entry: {
-      id: "airport-boyfriend",
-      date: "Travel Note",
-      title: "The Airport Boyfriend Era",
-      body:
-        "The archive keeps room for the stories that get funnier every time they are retold, especially the ones that somehow start at a gate, a terminal, or a very public waiting area.",
-      quote: "The destination mattered. The side comments mattered more.",
-    },
-  },
-  {
-    type: "story",
-    side: "right",
-    entry: {
-      id: "everyday-evidence",
-      date: "Ongoing",
-      title: "Everyday Evidence",
-      body:
-        "Small observations, familiar looks, and perfectly timed remarks become the proof that personality is preserved in the details.",
-      media: "photo",
-    },
-  },
-];
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useMemo, useRef, useState } from "react";
+import {
+  formatTimelineDate,
+  getPublishedTimelineEntries,
+  getTimelineYear,
+  type TimelineEntry,
+} from "../lib/timeline";
 
 export function TimelineExperience() {
-  const [activeId, setActiveId] = useState("annie-arrives");
-  const entryRefs = useRef<Record<string, HTMLElement | null>>({});
+  const [entries, setEntries] = useState<TimelineEntry[]>([]);
+  const [activeId, setActiveId] = useState<string | null>(null);
+  const [openEntry, setOpenEntry] = useState<TimelineEntry | null>(null);
+  const [status, setStatus] = useState<"loading" | "ready" | "empty" | "error">(
+    "loading",
+  );
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    offset: ["start start", "end end"],
+    target: sectionRef,
+  });
+  const railX = useTransform(scrollYProgress, [0, 1], ["0%", "-64%"]);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntry = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    let mounted = true;
 
-        if (visibleEntry?.target.id) {
-          setActiveId(visibleEntry.target.id);
+    getPublishedTimelineEntries()
+      .then((timelineEntries) => {
+        if (!mounted) {
+          return;
         }
-      },
-      { rootMargin: "-28% 0px -46% 0px", threshold: [0.22, 0.48, 0.72] },
-    );
 
-    Object.values(entryRefs.current).forEach((entry) => {
-      if (entry) {
-        observer.observe(entry);
-      }
-    });
+        setEntries(timelineEntries);
+        setActiveId(timelineEntries[0]?.id ?? null);
+        setOpenEntry(timelineEntries[0] ?? null);
+        setStatus(timelineEntries.length ? "ready" : "empty");
+      })
+      .catch(() => {
+        if (mounted) {
+          setStatus("error");
+        }
+      });
 
-    return () => observer.disconnect();
+    return () => {
+      mounted = false;
+    };
   }, []);
 
+  const activeEntry = useMemo(
+    () => entries.find((entry) => entry.id === activeId) ?? entries[0] ?? null,
+    [activeId, entries],
+  );
+
+  function selectEntry(entry: TimelineEntry) {
+    setActiveId(entry.id);
+    setOpenEntry(entry);
+  }
+
   return (
-    <section className="timeline-section px-5 py-20 sm:px-8 lg:px-12">
+    <section
+      className="timeline-section px-5 py-20 sm:px-8 lg:px-12"
+      ref={sectionRef}
+    >
       <div className="mx-auto max-w-7xl">
         <div className="max-w-3xl">
           <p className="text-sm font-bold uppercase tracking-[0.32em] text-accent-primary">
@@ -129,105 +72,171 @@ export function TimelineExperience() {
             A life arranged by stories, not just dates.
           </h2>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-text-secondary">
-            Dates provide structure. Stories provide meaning. This timeline is the
-            story engine of the archive.
+            Scroll down to travel across the archive. Milestones are the map;
+            stories are the destination.
           </p>
         </div>
 
-        <div className="timeline-track mt-16">
-          <div className="timeline-spine" aria-hidden="true" />
+        <div className="timeline-scroll-stage mt-14">
+          {status === "ready" ? (
+            <>
+              <div className="timeline-sticky-window">
+                <motion.div className="timeline-rail" style={{ x: railX }}>
+                  <div className="timeline-horizontal-line" aria-hidden="true" />
+                  {entries.map((entry) => {
+                    const active = activeId === entry.id;
 
-          {timelineItems.map((item) => {
-            if (item.type === "chapter") {
-              return <TimelineChapterBreak item={item} key={item.id} />;
-            }
+                    return (
+                      <button
+                        aria-pressed={active}
+                        className={["timeline-milestone", active ? "is-active" : ""].join(
+                          " ",
+                        )}
+                        key={entry.id}
+                        onClick={() => selectEntry(entry)}
+                        onFocus={() => setActiveId(entry.id)}
+                        type="button"
+                      >
+                        <span className="timeline-dot" />
+                        <span className="timeline-year">{getTimelineYear(entry)}</span>
+                        <span className="timeline-title">{entry.title}</span>
+                      </button>
+                    );
+                  })}
+                </motion.div>
 
-            return (
-              <TimelineEntryCard
-                active={activeId === item.entry.id}
-                item={item}
-                key={item.entry.id}
-                setRef={(node) => {
-                  entryRefs.current[item.entry.id] = node;
-                }}
-              />
-            );
-          })}
+                <StoryPreview entry={activeEntry} onOpen={() => setOpenEntry(activeEntry)} />
+              </div>
+
+              <StoryDrawer entry={openEntry} onClose={() => setOpenEntry(null)} />
+            </>
+          ) : (
+            <TimelineEmptyState status={status} />
+          )}
         </div>
       </div>
     </section>
   );
 }
 
-function TimelineChapterBreak({ item }: { item: TimelineChapter }) {
+function StoryPreview({
+  entry,
+  onOpen,
+}: {
+  entry: TimelineEntry | null;
+  onOpen: () => void;
+}) {
+  if (!entry) {
+    return null;
+  }
+
   return (
-    <motion.div
-      className="timeline-chapter"
-      initial={{ opacity: 0, y: 18 }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      viewport={{ once: true, margin: "-90px" }}
-      whileInView={{ opacity: 1, y: 0 }}
+    <motion.article
+      animate={{ opacity: 1, y: 0 }}
+      className="timeline-story-preview display-case"
+      initial={{ opacity: 0, y: 10 }}
+      key={entry.id}
+      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
     >
-      <p className="text-xs font-black uppercase tracking-[0.34em] text-accent-primary">
-        Chapter Break
-      </p>
-      <h3 className="mt-4 font-display text-3xl leading-tight sm:text-4xl">
-        {item.title}
+      <p className="timeline-date">{formatTimelineDate(entry)}</p>
+      <h3 className="mt-3 font-display text-3xl leading-tight text-text-primary">
+        {entry.title}
       </h3>
-      <p className="mt-4 max-w-2xl text-sm leading-7 text-text-secondary">
-        {item.subtitle}
-      </p>
-    </motion.div>
+      {entry.era ? (
+        <p className="mt-4 text-xs font-black uppercase tracking-[0.28em] text-accent-primary">
+          Era / {entry.era}
+        </p>
+      ) : null}
+      <p className="mt-4 text-base leading-8 text-text-secondary">{entry.summary}</p>
+      <button
+        className="mt-6 rounded-full border border-border-subtle px-5 py-3 text-xs font-black uppercase tracking-[0.22em] text-text-secondary transition hover:border-accent-primary hover:text-accent-primary"
+        onClick={onOpen}
+        type="button"
+      >
+        Open story
+      </button>
+    </motion.article>
   );
 }
 
-function TimelineEntryCard({
-  active,
-  item,
-  setRef,
+function StoryDrawer({
+  entry,
+  onClose,
 }: {
-  active: boolean;
-  item: TimelineStory;
-  setRef: (node: HTMLElement | null) => void;
+  entry: TimelineEntry | null;
+  onClose: () => void;
 }) {
+  if (!entry) {
+    return null;
+  }
+
   return (
-    <motion.article
-      className={[
-        "timeline-entry",
-        item.side === "left" ? "timeline-entry-left" : "timeline-entry-right",
-        active ? "is-active" : "",
-      ].join(" ")}
-      id={item.entry.id}
-      initial={{ opacity: 0, y: 18 }}
-      ref={setRef}
-      transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-      viewport={{ once: false, margin: "-80px" }}
-      whileInView={{ opacity: 1, y: 0 }}
-    >
-      <div className="timeline-marker" aria-hidden="true" />
-      <div className="timeline-artifact display-case">
-        <p className="timeline-date">{item.entry.date}</p>
-        <h3 className="mt-4 font-display text-3xl leading-tight text-text-primary">
-          {item.entry.title}
-        </h3>
-        <p className="mt-5 text-base leading-8 text-text-secondary">
-          {item.entry.body}
+    <div className="timeline-drawer" role="dialog" aria-modal="false">
+      <button
+        aria-label="Close story"
+        className="timeline-drawer-close"
+        onClick={onClose}
+        type="button"
+      >
+        Close
+      </button>
+      <p className="timeline-date">{formatTimelineDate(entry)}</p>
+      <h3 className="mt-4 font-display text-4xl leading-tight text-text-primary">
+        {entry.title}
+      </h3>
+      {entry.era ? (
+        <p className="mt-5 text-xs font-black uppercase tracking-[0.28em] text-accent-primary">
+          Era / {entry.era}
         </p>
+      ) : null}
+      <p className="mt-6 text-lg leading-8 text-text-secondary">{entry.summary}</p>
+      {entry.story ? (
+        <p className="mt-6 whitespace-pre-line text-base leading-8 text-text-secondary">
+          {entry.story}
+        </p>
+      ) : null}
+      {entry.quote ? (
+        <blockquote className="mt-7 border-l-2 border-accent-primary pl-5 text-base italic leading-8 text-text-secondary">
+          &quot;{entry.quote}&quot;
+        </blockquote>
+      ) : null}
+      {entry.featured_image_url ? (
+        <div className="timeline-media mt-7">
+          <span className="text-xs font-black uppercase tracking-[0.28em]">
+            [FEATURED IMAGE]
+          </span>
+        </div>
+      ) : null}
+      {entry.audio_memory_url ? (
+        <a
+          className="mt-6 inline-flex rounded-full bg-accent-primary px-5 py-3 text-xs font-black uppercase tracking-[0.22em] text-parchment-surface transition hover:bg-accent-hover"
+          href={entry.audio_memory_url}
+        >
+          Listen to audio memory
+        </a>
+      ) : null}
+    </div>
+  );
+}
 
-        {item.entry.quote ? (
-          <blockquote className="mt-6 border-l-2 border-accent-primary pl-5 text-sm italic leading-7 text-text-secondary">
-            &quot;{item.entry.quote}&quot;
-          </blockquote>
-        ) : null}
+function TimelineEmptyState({
+  status,
+}: {
+  status: "loading" | "ready" | "empty" | "error";
+}) {
+  const message =
+    status === "loading"
+      ? "Opening the archive..."
+      : status === "error"
+        ? "Timeline entries could not be loaded. Check Supabase configuration."
+        : "No published timeline entries yet. Add the first memory in the timeline admin.";
 
-        {item.entry.media ? (
-          <div className="timeline-media mt-7">
-            <span className="text-xs font-black uppercase tracking-[0.28em]">
-              {item.entry.media === "photo" ? "[PHOTO PLACEHOLDER]" : "[AUDIO CLIP]"}
-            </span>
-          </div>
-        ) : null}
-      </div>
-    </motion.article>
+  return (
+    <div className="timeline-empty display-case">
+      <p className="text-sm font-black uppercase tracking-[0.28em] text-accent-primary">
+        Timeline
+      </p>
+      <p className="mt-4 text-lg leading-8 text-text-secondary">{message}</p>
+    </div>
   );
 }
